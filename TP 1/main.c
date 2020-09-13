@@ -12,29 +12,56 @@ int main()
     float division;
     int resultadoA;
     int resultadoB;
+    int opcion;
 
-    printf("Ingrese un numero: ");
-    scanf("%d", &numeroA);
-    printf("Ingrese otro numero: ");
-    scanf("%d", &numeroB);
+    do
+    {
+        printf("1. Ingresar 1er operando (A=x) \n2.", numeroA,"Ingresar 2do operando(B=y)\n3. Calcular todas las operaciones\n a) Calcular la suma (A+B)\n b) Calcular la resta (A-B)\n c) Calcular la division (A/B)\n d) Calcular la multiplicacion (A*B)\n e) Calcular el factorial (A!) y (B!)\n4. mostrar\n5. Salir\n");
+        printf("Elija una opcion: ");
+        scanf("%d", &opcion);
 
-    suma = SumarNumeros(numeroA,numeroB);
+        switch(opcion)
+        {
+            case 1:
+                printf("Ingrese un numero: ");
+                scanf("%d", &numeroA);
+            break;
+            case 2:
+                printf("Ingrese otro numero: ");
+                scanf("%d", &numeroB);
+            break;
+            case 3:
+                suma = SumarNumeros(numeroA,numeroB);
+                resta = RestarNumeros(numeroA, numeroB);
+                multiplicacion = MultiplicarNumeros(numeroA, numeroB);
+                division = DividirNumeros(numeroA, numeroB);
+                resultadoA = CalcularFactorial(numeroA);
+                resultadoB = CalcularFactorialDos(numeroB);
 
-    printf("La suma de los dos numeros es: %d", suma);
+            break;
+            case 4:
+                printf("mInformar resultados \n");
+                printf("\nLa suma de los dos numeros es: %d\n", suma);
+                printf("La resta de los dos numeros es: %d\n", resta);
+                printf("La multiplicacion de los dos numeros es: %d\n", multiplicacion);
+                printf("La division de los dos numeros es: %.2f\n", division);
+                printf("El factorial de %d es: %d\n", numeroA, resultadoA);
+                printf("El factorial A es %d y el B es %d\n\n", numeroB, resultadoB);
+            break;
+            case 5:
+                printf("\nGracias por corregir mi trabajo practico.\n");
+                break;
+        }
 
-    resta = RestarNumeros(numeroA, numeroB);
-    printf("La resta de los dos numeros es: %d\n", resta);
 
-    multiplicacion = MultiplicarNumeros(numeroA, numeroB);
-    printf("La multiplicacion de los dos numeros es: %d\n", multiplicacion);
 
-    division = DividirNumeros(numeroA, numeroB);
-    printf("La division de los dos numeros es: %.2f\n", division);
+    }while(opcion!=5);
 
-    resultadoA = CalcularFactorial(numeroA);
-    printf("El factorial de %d es: %d\n", numeroA, resultadoA);
-    resultadoB = CalcularFactorialDos(numeroB);
-    printf("El factorial de %d es: %d", numeroB, resultadoB);
+
+
+
+
+
 
     return 0;
 }
